@@ -1,0 +1,85 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply transition-colors duration-300;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  }
+
+.nav-link {
+  @apply relative py-1 hover:text-blue-500;
+}
+
+.nav-link::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
+}
+
+.nav-link:hover::after {
+  @apply w-full;
+}
+
+.light {
+  --bg-color: #f8fafc;
+  --text-color: #0f172a;
+  --accent-color: #3b82f6;
+}
+
+.dark {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #8b5cf6;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.glass {
+  @apply backdrop-blur-md bg-white/30 border border-white/20 shadow-xl;
+}
+
+.dark .glass {
+  @apply bg-black/30 border-white/10;
+}
+
+/* Color Vibrance */
+.vibrant-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 animate-gradient-x;
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 5s ease infinite;
+}
+
+/* Hover effects */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}

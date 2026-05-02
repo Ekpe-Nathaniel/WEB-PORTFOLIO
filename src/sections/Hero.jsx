@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import useDecrypt from "../hooks/useDecrypt";
 import profilePic from "../assets/ENE.jpeg";
+import cvFile from "../assets/Ekpe's CV.pdf";
 
 const Hero = () => {
   const name = useDecrypt("Ekpe Nathaniel");
@@ -56,8 +57,8 @@ const Hero = () => {
               View My Work
             </a>
             <a
-              href="/cv.pdf"
-              download
+              href={cvFile}
+              download="Ekpe_CV.pdf"
               className="inline-block px-8 py-3 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover-scale hover-glow font-semibold transition-all"
             >
               Download CV
